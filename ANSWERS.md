@@ -3,7 +3,7 @@
 - Variant A returns ErrWalletFrozen
 - Variant B returns ErrInvalidAmount
 
-Variant A is better, but it pretty much depends if we want to do some extra expensive work (like send query to the DB) or not. State check should preceed input checks and the state check invariant can make operation illegal regardless of input. In this situation, user can interpet that if he fixes the amount, the program will accept their input (which is misleading), so ErrWalletFrozen is more informative.
+Variant A is better, but it pretty much depends if we want to do some extra expensive work (like send query to the DB) or not. If yes, it is better to validate the input first (to reduce cost for network bandwidth).State check should preceed input checks and the state check invariant can make operation illegal regardless the input. In variant B, user can interpet that if he fixes the amount, the program will accept their input (which is misleading), so ErrWalletFrozen is more informative.
 
 # Q2
 

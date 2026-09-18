@@ -5,13 +5,16 @@ import "uuid"
 type WalletStatus = string
 
 const (
-	ACTIVE WalletStatus = "active"
-	FROZEN WalletStatus = "frozen"
+	ACTIVE WalletStatus = "ACTIVE"
+	FROZEN WalletStatus = "FROZEN"
 )
 
+type WalletID = uuid.UUID
+type OwnerID = uuid.UUID
+
 type Wallet struct {
-	ID      uuid.UUID
-	OwnerID uuid.UUID
+	ID      WalletID
+	OwnerID OwnerID
 	Balance int64
 	Status  WalletStatus
 }
